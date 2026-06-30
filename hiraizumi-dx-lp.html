@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平泉DX・観光経営ラーニングプログラム | HeroFund</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== Hero Section ==================== */
+        .hero {
+            background: #fff;
+            color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+            padding: 80px 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, #1E40AF 0%, #0369A1 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FCD34D 0%, #FBBF24 100%);
+            color: #000;
+            padding: 16px 40px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(252, 211, 77, 0.3);
+        }
+
+        /* ==================== Section Styles ==================== */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FCD34D, #0369A1);
+        }
+
+        /* ==================== Overview ==================== */
+        .overview {
+            background: #f9f9f9;
+        }
+
+        .overview-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .overview-text h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .overview-text p {
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(252, 211, 77, 0.2) 0%, transparent 100%);
+            padding: 20px;
+            border-left: 4px solid #FCD34D;
+        }
+
+        /* ==================== Target Audience ==================== */
+        .audience {
+            background: #fff;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .audience-card {
+            background: #f5f5f5;
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #0369A1;
+        }
+
+        .audience-card p {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* ==================== Features ==================== */
+        .features {
+            background: #E0F2FE;
+            color: #000;
+        }
+
+        .features .section-title {
+            color: #000;
+        }
+
+        .features .section-title::after {
+            background: linear-gradient(90deg, #FCD34D, #0369A1);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            background: #fff;
+            border-radius: 8px;
+            border-left: 4px solid #0369A1;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #0369A1;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* ==================== Program Content ==================== */
+        .program-content {
+            background: #fff;
+        }
+
+        .program-weeks {
+            display: grid;
+            gap: 32px;
+        }
+
+        .week-card {
+            background: #f9f9f9;
+            padding: 32px;
+            border-radius: 8px;
+            border-top: 4px solid #0369A1;
+        }
+
+        .week-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: #000;
+        }
+
+        .week-card p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* ==================== Schedule ==================== */
+        .schedule {
+            background: #f9f9f9;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .schedule-table th {
+            background: #000;
+            color: #FCD34D;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .schedule-table td {
+            padding: 16px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-weight: 600;
+            width: 120px;
+            color: #0369A1;
+        }
+
+        /* ==================== Testimonials ==================== */
+        .testimonials {
+            background: #E0F2FE;
+            color: #000;
+        }
+
+        .testimonials .section-title {
+            color: #000;
+        }
+
+        .testimonials .section-title::after {
+            background: linear-gradient(90deg, #FCD34D, #0369A1);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid #0369A1;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #0369A1;
+            font-size: 14px;
+        }
+
+        /* ==================== FAQ ==================== */
+        .faq {
+            background: #fff;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 24px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #0369A1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-answer {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            max-height: 500px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.hidden {
+            max-height: 0;
+            display: none;
+        }
+
+        /* ==================== Application Process ==================== */
+        .application {
+            background: #f9f9f9;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #0369A1;
+        }
+
+        .step-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FCD34D;
+            margin-bottom: 12px;
+        }
+
+        .step-card h4 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* ==================== CTA Section ==================== */
+        .cta-section {
+            background: #E0F2FE;
+            color: #000;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* ==================== Footer ==================== */
+        footer {
+            background: #000;
+            color: #999;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        /* ==================== Responsive ==================== */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                padding: 60px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== Hero Section ==================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>平泉DX・観光経営ラーニングプログラム</h1>
+                <p>地方と世界をつなぐ体験教育。1ヶ月で、次のステージが見える。</p>
+                <button class="cta-button" onclick="document.querySelector('.cta-section').scrollIntoView({behavior: 'smooth'})">説明会に申し込む</button>
+            </div>
+            <div class="hero-image">
+                <img src="IMAGE_PLACEHOLDER_MAIN" alt="プログラムの様子" style="display:none;">
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">📸</div>
+                    <p>学生たちが真剣に楽しんでいる様子の写真</p>
+                    <p style="font-size: 12px; color: #aaa; margin-top: 16px;">IMAGE_PLACEHOLDER_MAIN<br>に置き換えてください</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Overview ==================== -->
+    <section class="overview">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h2>プログラム概要</h2>
+                    <p>座学ではなく、実際に動く。カンボジアの学生と一緒にプロジェクトに参加し、平泉の地方創生課題に向き合います。</p>
+                    <p>企業のプロフェッショナルと交流し、異文化の中で、自分のスキルと適性に向き合う1ヶ月。</p>
+                    <p>プログラム終了時、参加者は「次のステージ」が見えています。就職先選びに迷わなくなる。何を学ぶべきか、なぜ学ぶのかが明確になる。</p>
+                    <div class="highlight">
+                        <strong>対象：大学生・大学院生・社会人（既卒1～3年目、キャリア転換層）</strong>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: linear-gradient(135deg, #0369A1 0%, #1E40AF 100%); padding: 40px; border-radius: 8px; color: #fff; text-align: center;">
+                        <div style="font-size: 48px; font-weight: 700; margin-bottom: 12px;">1ヶ月</div>
+                        <p style="margin-bottom: 20px;">で身につく実践力</p>
+                        <div style="font-size: 14px; line-height: 1.8;">
+                            <p>✓ DX・観光経営スキル</p>
+                            <p>✓ グローバル視点</p>
+                            <p>✓ キャリア軸の明確化</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Target Audience ==================== -->
+    <section class="audience">
+        <div class="container">
+            <h2 class="section-title">こんな人が参加しています</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <p>🎓 大学生<br>(全学年・全学部)</p>
+                </div>
+                <div class="audience-card">
+                    <p>🏫 大学院生</p>
+                </div>
+                <div class="audience-card">
+                    <p>👨‍💼 社会人<br>(既卒1～3年目)</p>
+                </div>
+                <div class="audience-card">
+                    <p>🔄 キャリア転換層</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Features ==================== -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">プログラムの4つの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>1. 「地方と世界」が同時に学べる</h3>
+                    <p>平泉での地方創生とカンボジアの国際視点を組み合わせた学習。日本国内だけの体験では見えない、グローバルな視座が身につきます。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>2. 企業と大学、両者の視点</h3>
+                    <p>参加者は「学生」ではなく「プロジェクトメンバー」として扱われます。ビジネス実務と学問的思考の深さが両立します。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>3. 就職に直結する可能性</h3>
+                    <p>プログラム後、参加企業への就職推薦、インターンシップ、大学院進学など複数のキャリアパスが開かれています。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>4. 長期的なサポート</h3>
+                    <p>終了後も、キャリア相談、就職活動サポート、OBOGネットワークを通じた継続的なサポートがあります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Program Content ==================== -->
+    <section class="program-content">
+        <div class="container">
+            <h2 class="section-title">プログラム内容</h2>
+            <div class="program-weeks">
+                <div class="week-card">
+                    <h3>📍 週1：適応と関係構築</h3>
+                    <p>平泉に到着し、ホームステイまたはシェアハウスに入居。HeroFundスタッフ、カンボジア学生、地元企業のメンバーと出会います。平泉の地理、文化、経済を学び、異文化交流の最初の1週間を過ごします。</p>
+                </div>
+                <div class="week-card">
+                    <h3>💼 週2～3：実践プロジェクト</h3>
+                    <p>地方創生に関わる実際のプロジェクトに参加。観光資源開発、DX支援、地域ブランディングなど、HeroFundが進めるテーマから選択します。カンボジアの学生と同じチームで、課題解決に取り組みます。毎日が試行錯誤。完璧な答えはなく、失敗から学び、調整する過程で、自分の強みと弱みが見えます。</p>
+                </div>
+                <div class="week-card">
+                    <h3>🎯 週4：キャリア振り返りと発表</h3>
+                    <p>プロジェクト成果を整理し、参加者全員の前で発表。スタッフとのキャリア面談を実施し、1ヶ月を通じて見えた「自分の道」について具体的に考えます。企業側の求める人材像とのマッチングも行います。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Schedule ==================== -->
+    <section class="schedule">
+        <div class="container">
+            <h2 class="section-title">1日のスケジュール例</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>時間</th>
+                        <th>内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="schedule-time">08:30</td>
+                        <td><strong>朝礼・ミーティング</strong><br>共通課題や業務連絡の共有。その日のゴール設定。</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time">09:00～12:00</td>
+                        <td><strong>実践業務</strong><br>プロジェクトの作業。企業実務を体験。</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time">12:00～13:00</td>
+                        <td><strong>昼食</strong><br>スタッフやカンボジア学生との交流時間。異文化理解が深まる。</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time">13:00～17:00</td>
+                        <td><strong>実践業務 + 学習セッション</strong><br>午前の続き、または座学セッション。DX、マーケティング、異文化コミュニケーションなど。</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time">17:00～18:00</td>
+                        <td><strong>振り返り・日報作成</strong><br>その日の学びを整理。日報にまとめる。</td>
+                    </tr>
+                    <tr>
+                        <td class="schedule-time">18:00～</td>
+                        <td><strong>自由時間</strong><br>ホームステイでの家族交流、個人勉強、外出など。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ==================== Testimonials ==================== -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">参加者の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>「座学だけでは見えない、実際の仕事の流れが分かりました。特に、カンボジアの学生と一緒に働く中で、自分がどれだけ相手の立場を考えていないか気づかされました。1ヶ月で、就職先の業界も決まりました。」</p>
+                    <p class="testimonial-author">田中さん（大学3年生、東京都出身）</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>「研究室では見えないビジネスの視点を学べたのが大きかったです。平泉という地方にこんな可能性があるのか、という驚きもあります。帰ってから、論文の方向性も変わりました。」</p>
+                    <p class="testimonial-author">佐藤さん（大学院1年生、福岡県出身）</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>「日本の地方がどのように発展しているのか、自分の目で見ることができました。同じアジアでも国によってビジネスのやり方が違うことに気づきました。帰国後、日本の企業で働くことになりました。」</p>
+                    <p class="testimonial-author">李さん（カンボジア国立大学出身）</p>
+                </div>
+                <div class="testimonial-card">
+                    <p>「前職の環境が合わず、自分の適性を考え直したくて参加しました。プログラムを通じて、自分は『地域貢献』に価値を感じることに気づきました。今は、このままHeroFundでの就職を決めました。」</p>
+                    <p class="testimonial-author">山田さん（社会人2年目、大阪府出身）</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q1. 英語ができなくても参加できますか？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> 参加可能です。プログラム内には英語学習時間も含まれています。初心者向けの簡単な英会話から始まります。ただし、基本的な日本語でのコミュニケーション能力は必須です。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q2. ホームステイは必須ですか？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> 必須です。地元の家族との交流が、体験学習の重要な一部だからです。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q3. 期間と費用はどのくらい？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> <strong>期間：</strong>1ヶ月（4週間）または2ヶ月（応相談）</p>
+                    <p><strong>費用：</strong>20万円/月（宿泊費、食事費、研修教材費を含む。移動費、ビザ手続きは別途）</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q4. プログラム後の就職は保証されますか？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> 保証はできません。ただし、参加企業への推薦、キャリア相談、インターン機会などを提供します。参加者の適性と企業ニーズがマッチしている場合、多くが就職や進学に繋がっています。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q5. 途中退出はできますか？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> 原則不可。ただし、家族の緊急事態など、やむを得ない事情がある場合は相談ください。</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Q6. 宿泊地を選べますか？</span>
+                    <span style="margin-left: auto; font-size: 20px;">+</span>
+                </div>
+                <div class="faq-answer hidden">
+                    <p><strong>A.</strong> ホームステイまたはシェアハウスから選べます。ただし、希望が多い場合は抽選になることもあります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Application Process ==================== -->
+    <section class="application">
+        <div class="container">
+            <h2 class="section-title">申込プロセス</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>エントリーフォーム</h4>
+                    <p>基本情報と参加動機を入力</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>書類選考</h4>
+                    <p>約1週間で結果をお知らせ</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>オンライン面談</h4>
+                    <p>スタッフとの30分程度の面談</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>合否通知</h4>
+                    <p>面談から約3日以内に通知</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h4>契約・費用納入</h4>
+                    <p>プログラム契約書を交わし、費用をお支払い</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h4>事前オリエンテーション</h4>
+                    <p>開始2週間前にオンライン実施</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA Section ==================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>あなたの「次のステージ」が見える</h2>
+            <p>1ヶ月の体験で、就職先選びに迷わなくなる。何を学ぶべきか、なぜ学ぶのかが明確になる。</p>
+            <button class="cta-button" onclick="alert('説明会のお申し込みフォームへ移動します')">説明会に申し込む</button>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+        <p>平泉DX・観光経営ラーニングプログラム | HeroFund株式会社</p>
+        <p>お問い合わせ：info@herofund.app</p>
+        <p>&copy; 2024 HeroFund. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isHidden = answer.classList.contains('hidden');
+            
+            // すべてのFAQを閉じる
+            document.querySelectorAll('.faq-answer').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll('.faq-question span:last-child').forEach(el => {
+                el.textContent = '+';
+            });
+            
+            // クリックされたFAQのみ開く
+            if (isHidden) {
+                answer.classList.remove('hidden');
+                element.querySelector('span:last-child').textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
